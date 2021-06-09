@@ -1,0 +1,35 @@
+﻿@model CrackMe 
+@{
+    ViewData["Title"] = "Home Page";
+
+
+    DateTime startTime = CrackMe.StartTime;
+    DateTime endTime = CrackMe.EndTime;
+    int combinations = CrackMe.Combinations;
+
+}
+
+<div class="text-center">
+    <h1 class="display-4">Password Cracker</h1>
+    <form asp-controller="Home" asp-action="Index">
+        <div class="row">            
+             <input onkeypress="return event.charCode != 32" style="text-align:center;" class="form-control" value="@Model.EnteredPassword" name="EnteredPassword" type="text" placeholder="Type your password here..." />
+        </div>
+            <br />
+            <div>
+                <button type="submit" class="btn btn-danger">Crack Me</button>
+            </div>
+</form>
+    <div>
+        <div>
+            You started at @startTime
+        </div>
+        <div>
+            @combinations combinations tried.
+        </div>
+        <div>
+            You ended at @endTime
+        </div>
+    </div>
+
+</div>
